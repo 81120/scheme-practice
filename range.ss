@@ -22,3 +22,10 @@
               (else
                 (iter-range (+ start step) step end (append result (list start)))))))))
     (iter-range start step end '())))
+;;;; implement xrange in another way.
+(define xrange 
+  (lambda (a z result)
+    (cond 
+      ((eq? a z) (cons a result))
+      (else
+        (xrange a (- z 1) (cons z result))))))
