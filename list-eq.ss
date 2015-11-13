@@ -31,3 +31,19 @@
 		   (cdr lst1)
 		   (cdr lst2)))
 		 (else #f))))))))))
+
+;; based on the list-eq?, we can also 
+;; implement the string-eq? easily.
+
+(define string-eq? 
+ (lambda (str1 str2)
+  (cond 
+   ((not 
+	 (and
+	  (string? str1)
+	  (string? str2)))
+	(display "string->string->boolean"))
+   (else 
+	(list-eq? 
+	 (string->list str1)
+	 (string->list str2))))))
